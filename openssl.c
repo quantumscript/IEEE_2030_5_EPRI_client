@@ -218,6 +218,7 @@ int ssl_ret, ssl_err;
 int ssl_handshake (void *ssl) { ERR_clear_error ();
   if ((ssl_ret = SSL_do_handshake (ssl)) == 1) return 1;
   ssl_err = SSL_get_error (ssl, ssl_ret);
+  printf("IN openssl.c: ssh_handshake() ERROR %i\n", ssl_err);
   return 0;
 }
 

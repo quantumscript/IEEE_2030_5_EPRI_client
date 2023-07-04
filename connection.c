@@ -144,7 +144,7 @@ int tls_session (void *conn) {
       c->tls_state = TLS_SESSION; return SESSION_NEW;
     } else if (!ssl_pending ()) {
       c->tls_state = TLS_SHUTDOWN;
-      print_ssl_error ("tls_session");
+      print_ssl_error ("IN connection.c: tls_session() error: ");
     } else break;
     case TLS_SHUTDOWN:
       if (ssl_close (c->tls)) {
